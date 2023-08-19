@@ -14,9 +14,14 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "inventory_item")
+@Table(
+		name = "inventory_item", 
+		uniqueConstraints= @UniqueConstraint(columnNames={"item_id", "warehouse_id"})
+)
+
 public class InventoryItem {
 	
 	@Transient
@@ -28,11 +33,11 @@ public class InventoryItem {
 	
 	@ManyToOne
 	@JoinColumn(name = "item_id")
-	private Item itemId;
+	private Item item;
 	
 	@ManyToOne
 	@JoinColumn(name = "warehouse_id")
-	private Warehouse warehouseId;
+	private Warehouse warehouse;
 	
 	@Column(name = "quantity")
 	private int quantity;
@@ -45,20 +50,20 @@ public class InventoryItem {
 		this.id = id;
 	}
 
-	public Item getItemId() {
-		return itemId;
+	public Item getItem() {
+		return item;
 	}
 
-	public void setItemId(Item itemId) {
-		this.itemId = itemId;
+	public void setItem(Item item) {
+		this.item = item;
 	}
 
-	public Warehouse getWarehouseId() {
-		return warehouseId;
+	public Warehouse getWarehouse() {
+		return warehouse;
 	}
 
-	public void setWarehouseId(Warehouse warehouseId) {
-		this.warehouseId = warehouseId;
+	public void setWarehouse(Warehouse warehouse) {
+		this.warehouse = warehouse;
 	}
 
 	public int getQuantity() {
@@ -69,22 +74,22 @@ public class InventoryItem {
 		this.quantity = quantity;
 	}
 
-	public InventoryItem(Item itemId, Warehouse warehouseId, int quantity) {
+	public InventoryItem(Item item, Warehouse warehouse, int quantity) {
 		super();
-		this.itemId = itemId;
-		this.warehouseId = warehouseId;
+		this.item = item;
+		this.warehouse = warehouse;
 		this.quantity = quantity;
 	}
 
 	@Override
 	public String toString() {
-		return "InventoryItem [id=" + id + ", itemId=" + itemId + ", warehouseId=" + warehouseId + ", quantity="
+		return "InventoryItem [id=" + id + ", itemId=" + item.getId() + ", warehouseId=" + warehouse.getId() + ", quantity="
 				+ quantity + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, itemId, quantity, warehouseId);
+		return Objects.hash(id, item, quantity, warehouse);
 	}
 
 	@Override
@@ -96,8 +101,8 @@ public class InventoryItem {
 		if (getClass() != obj.getClass())
 			return false;
 		InventoryItem other = (InventoryItem) obj;
-		return id == other.id && Objects.equals(itemId, other.itemId) && quantity == other.quantity
-				&& Objects.equals(warehouseId, other.warehouseId);
+		return id == other.id && Objects.equals(item, other.item) && quantity == other.quantity
+				&& Objects.equals(warehouse, other.warehouse);
 	}
 	
 	
