@@ -14,7 +14,7 @@
 	<name>project1</name>
 	<description>Project 1 for Sarah Walker</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
 		<dependency>

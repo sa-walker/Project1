@@ -19,7 +19,8 @@ import jakarta.persistence.UniqueConstraint;
 @Entity
 @Table(
 		name = "inventory_item", 
-		uniqueConstraints= @UniqueConstraint(columnNames={"item_id", "warehouse_id"})
+		uniqueConstraints= @UniqueConstraint(
+				columnNames={"item_id", "warehouse_id"})
 )
 
 public class InventoryItem {
