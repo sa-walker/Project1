@@ -59,8 +59,14 @@ public class Item {
 		this.itemName = itemName;
 		this.itemDescription = itemDescription;
 	}
-
 	
+	public Item(int id, String itemName, String itemDescription) {
+		super();
+		this.id = id;
+		this.itemName = itemName;
+		this.itemDescription = itemDescription;
+	}
+
 	@Override
 	public String toString() {
 		return "Item [id=" + id + ", itemName=" + itemName + ", itemDescription=" + itemDescription + "]";

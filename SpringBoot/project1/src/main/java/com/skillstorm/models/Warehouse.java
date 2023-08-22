@@ -62,6 +62,13 @@ public class Warehouse {
 		this.itemLimit = itemLimit;
 	}
 
+	public Warehouse(int id, String location, double itemLimit) {
+		super();
+		this.id = id;
+		this.location = location;
+		this.itemLimit = itemLimit;
+	}
+
 	@Override
 	public String toString() {
 		return "Warehouse [id=" + id + ", location=" + location + ", itemLimit=" + itemLimit + "]";

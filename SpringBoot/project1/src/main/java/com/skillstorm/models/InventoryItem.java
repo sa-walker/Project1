@@ -82,6 +82,14 @@ public class InventoryItem {
 		this.quantity = quantity;
 	}
 
+	public InventoryItem(int id, Item item, Warehouse warehouse, int quantity) {
+		super();
+		this.id = id;
+		this.item = item;
+		this.warehouse = warehouse;
+		this.quantity = quantity;
+	}
+
 	@Override
 	public String toString() {
 		return "InventoryItem [id=" + id + ", itemId=" + item.getId() + ", warehouseId=" + warehouse.getId() + ", quantity="
