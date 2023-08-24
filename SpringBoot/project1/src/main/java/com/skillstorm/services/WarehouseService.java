@@ -1,9 +1,19 @@
 package com.skillstorm.services;
 
-import com.skillstorm.models.Warehouse;
+import java.util.List;
+
+
+import com.skillstorm.dtos.WarehouseRequestDto;
+import com.skillstorm.dtos.WarehouseResponseDto;
 
 public interface WarehouseService {
+	
+    // find all
+	List<WarehouseResponseDto> findAll();
 
-	// Save operation
-	Warehouse saveWarehouse(Warehouse warehouse);
+	//save
+	WarehouseResponseDto save(WarehouseRequestDto dto);
+	
+	//delete
+	int delete(WarehouseRequestDto dto);
 }

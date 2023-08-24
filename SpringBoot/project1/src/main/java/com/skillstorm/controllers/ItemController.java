@@ -33,4 +33,8 @@ public class ItemController {
 		return new ResponseEntity<>(itemService.save(dto), HttpStatus.CREATED);
 	}
 
+	@DeleteMapping("/items")
+	public int delete(@RequestBody ItemRequestDto dto) {
+		return itemService.delete(dto);
+	}
 }

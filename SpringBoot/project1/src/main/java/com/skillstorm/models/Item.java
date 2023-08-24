@@ -60,6 +60,12 @@ public class Item {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+
+	public Item(int id) {
+		super();
+		this.id = id;
+	}
 
 	public Item(String itemName, String itemDescription) {
 		super();

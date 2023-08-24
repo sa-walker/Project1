@@ -5,6 +5,8 @@ import org.springframework.stereotype.Component;
 import com.skillstorm.dtos.InventoryItemRequestDto;
 import com.skillstorm.dtos.InventoryItemResponseDto;
 import com.skillstorm.models.InventoryItem;
+import com.skillstorm.models.Item;
+import com.skillstorm.models.Warehouse;
 
 @Component
 public class InventoryItemMapper {
@@ -13,8 +15,8 @@ public class InventoryItemMapper {
 
 	public InventoryItemResponseDto convert(InventoryItem inventoryItem) {
 		return new InventoryItemResponseDto(inventoryItem.getId(), 
-				inventoryItem.getItem(), 
-				inventoryItem.getWarehouse(),
+				inventoryItem.getItem().getId(), 
+				inventoryItem.getWarehouse().getId(),
 				inventoryItem.getQuantity());
 	}
 	
@@ -22,8 +24,8 @@ public class InventoryItemMapper {
 	
 	public InventoryItem convert(InventoryItemRequestDto inventoryItemDto) {
 		return new InventoryItem(inventoryItemDto.getId(),
-				inventoryItemDto.getItem(),
-				inventoryItemDto.getWarehouse(),
+				new Item(inventoryItemDto.getItemId()),
+				new Warehouse(inventoryItemDto.getWarehouseId()),
 				inventoryItemDto.getQuantity());
 	}
 
