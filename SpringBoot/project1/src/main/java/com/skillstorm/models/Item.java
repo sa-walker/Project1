@@ -53,6 +53,13 @@ public class Item {
 	public void setItemDescription(String itemDescription) {
 		this.itemDescription = itemDescription;
 	}
+	
+	
+
+	public Item() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public Item(String itemName, String itemDescription) {
 		super();

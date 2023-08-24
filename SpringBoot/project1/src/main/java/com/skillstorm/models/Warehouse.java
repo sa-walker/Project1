@@ -55,6 +55,13 @@ public class Warehouse {
 	public void setItemLimit(double itemLimit) {
 		this.itemLimit = itemLimit;
 	}
+	
+	
+
+	public Warehouse() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public Warehouse(String location, double itemLimit) {
 		super();

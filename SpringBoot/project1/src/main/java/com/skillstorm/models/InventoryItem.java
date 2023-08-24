@@ -75,6 +75,12 @@ public class InventoryItem {
 		this.quantity = quantity;
 	}
 
+	
+	public InventoryItem() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public InventoryItem(Item item, Warehouse warehouse, int quantity) {
 		super();
 		this.item = item;

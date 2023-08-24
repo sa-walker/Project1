@@ -1,10 +1,19 @@
 package com.skillstorm.services;
 
-import com.skillstorm.models.Item;
+import java.util.List;
+
+import com.skillstorm.dtos.ItemRequestDto;
+import com.skillstorm.dtos.ItemResponseDto;
 
 public interface ItemService {
+    
+    // find all
+	List<ItemResponseDto> findAll();
+
+	//save
+	ItemResponseDto save(ItemRequestDto dto);
 	
-	// Save operation
-    Item saveItem(Item item);
+	//delete
+	int delete(ItemRequestDto dto);
 
 }
