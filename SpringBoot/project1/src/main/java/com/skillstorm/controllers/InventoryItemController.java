@@ -30,6 +30,11 @@ public class InventoryItemController {
 		}
 	}
 	
+	//filter by warehouse
+	//filter by itemid
+	//filter by item name
+	
+	
     // Save operation
     @PostMapping("/inventory")
 	public ResponseEntity<InventoryItemResponseDto> save(@RequestBody InventoryItemRequestDto dto) {

@@ -27,6 +27,8 @@ public class ItemController {
 		}
 	}
 	
+	//filter by name
+	
     // Save operation
     @PostMapping("/items")
 	public ResponseEntity<ItemResponseDto> save(@RequestBody ItemRequestDto dto) {

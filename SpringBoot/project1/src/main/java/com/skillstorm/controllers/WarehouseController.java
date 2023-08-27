@@ -29,6 +29,7 @@ public class WarehouseController {
 			return new ResponseEntity<>(dtos, HttpStatus.OK);
 		}
 	}
+	//edit?
 	
     // Save operation
     @PostMapping("/warehouses")
