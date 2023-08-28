@@ -29,13 +29,21 @@ public class WarehouseController {
 			return new ResponseEntity<>(dtos, HttpStatus.OK);
 		}
 	}
+	
+	@GetMapping(value = "/warehouses", params = "id")
+	public ResponseEntity<WarehouseResponseDto> getReferenceById(@RequestParam int id) {
+		return new ResponseEntity<>(warehouseService.getReferenceById(id), HttpStatus.OK);
+	}
+
 	//edit?
 	
     // Save operation
     @PostMapping("/warehouses")
+    @PutMapping("/warehouses")
 	public ResponseEntity<WarehouseResponseDto> save(@RequestBody WarehouseRequestDto dto) {
 		return new ResponseEntity<>(warehouseService.save(dto), HttpStatus.CREATED);
 	}
+    
 
 	@DeleteMapping("/warehouses")
 	public int delete(@RequestBody WarehouseRequestDto dto) {

@@ -1,6 +1,7 @@
 package com.skillstorm.services;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,12 @@ public class WarehouseServiceImpl implements WarehouseService {
 	@Override
 	public List<WarehouseResponseDto> findAll() {
 		return repo.findAll().stream().map(data -> mapper.convert(data)).collect(Collectors.toList());
+	}
+	
+	@Override
+	public WarehouseResponseDto getReferenceById(Integer id) {
+		return mapper.convert(repo.getReferenceById(id));
+
 	}
 
 	// JPA projections can do the Director -> DirectorResponseDto for us

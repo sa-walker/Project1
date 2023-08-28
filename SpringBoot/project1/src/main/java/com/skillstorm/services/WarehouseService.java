@@ -10,6 +10,7 @@ public interface WarehouseService {
 	
     // find all
 	List<WarehouseResponseDto> findAll();
+	WarehouseResponseDto getReferenceById(Integer id);
 
 	//save
 	WarehouseResponseDto save(WarehouseRequestDto dto);
