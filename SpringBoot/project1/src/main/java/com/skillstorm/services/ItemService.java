@@ -9,6 +9,7 @@ public interface ItemService {
     
     // find all
 	List<ItemResponseDto> findAll();
+	ItemResponseDto getReferenceById(Integer id);
 
 	//save
 	ItemResponseDto save(ItemRequestDto dto);

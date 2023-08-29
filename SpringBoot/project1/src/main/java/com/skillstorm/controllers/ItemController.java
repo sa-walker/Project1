@@ -27,10 +27,16 @@ public class ItemController {
 		}
 	}
 	
-	//filter by name
+	@GetMapping(value = "/items", params = "id")
+	public ResponseEntity<ItemResponseDto> getReferenceById(@RequestParam int id) {
+		return new ResponseEntity<>(itemService.getReferenceById(id), HttpStatus.OK);
+	}
+
+	//edit?
 	
     // Save operation
     @PostMapping("/items")
+    @PutMapping("/items")
 	public ResponseEntity<ItemResponseDto> save(@RequestBody ItemRequestDto dto) {
 		return new ResponseEntity<>(itemService.save(dto), HttpStatus.CREATED);
 	}

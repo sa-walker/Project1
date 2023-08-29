@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.skillstorm.dtos.ItemRequestDto;
 import com.skillstorm.dtos.ItemResponseDto;
+import com.skillstorm.dtos.WarehouseResponseDto;
 import com.skillstorm.mappers.ItemMapper;
 import com.skillstorm.models.Item;
 import com.skillstorm.repositories.ItemRepository;
@@ -31,6 +32,12 @@ public class ItemServiceImpl implements ItemService {
 	@Override
 	public List<ItemResponseDto> findAll() {
 		return repo.findAll().stream().map(data -> mapper.convert(data)).collect(Collectors.toList());
+	}
+	
+	@Override
+	public ItemResponseDto getReferenceById(Integer id) {
+		return mapper.convert(repo.getReferenceById(id));
+
 	}
 
 	// JPA projections can do the Director -> DirectorResponseDto for us

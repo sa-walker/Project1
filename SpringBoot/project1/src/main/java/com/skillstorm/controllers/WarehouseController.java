@@ -7,11 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.skillstorm.dtos.ItemRequestDto;
-import com.skillstorm.dtos.ItemResponseDto;
+
 import com.skillstorm.dtos.WarehouseRequestDto;
 import com.skillstorm.dtos.WarehouseResponseDto;
-import com.skillstorm.services.ItemService;
 //import javax.validation.Valid;
 import com.skillstorm.services.WarehouseService;
 
