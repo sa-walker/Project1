@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.skillstorm.dtos.ItemRequestDto;
 import com.skillstorm.dtos.ItemResponseDto;
-import com.skillstorm.dtos.WarehouseResponseDto;
 import com.skillstorm.mappers.ItemMapper;
 import com.skillstorm.models.Item;
 import com.skillstorm.repositories.ItemRepository;
@@ -17,12 +16,13 @@ import com.skillstorm.repositories.ItemRepository;
 
 public class ItemServiceImpl implements ItemService {
     
+	@Autowired
 	private ItemRepository repo;
 	private ItemMapper mapper;
 	
 	// Inject an instance of the ItemMapper class here - why?
 
-	@Autowired
+
 	public ItemServiceImpl(ItemRepository repo, 
 			ItemMapper mapper) {
 		this.repo = repo;

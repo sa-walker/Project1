@@ -21,12 +21,13 @@ import com.skillstorm.repositories.WarehouseRepository;
 @Service
 public class WarehouseServiceImpl implements WarehouseService {
 
+	@Autowired
 	private WarehouseRepository repo;
 	private WarehouseMapper mapper;
 	
 	// Inject an instance of the ItemMapper class here - why?
 
-	@Autowired
+
 	public WarehouseServiceImpl(WarehouseRepository repo, 
 			WarehouseMapper mapper) {
 		this.repo = repo;
