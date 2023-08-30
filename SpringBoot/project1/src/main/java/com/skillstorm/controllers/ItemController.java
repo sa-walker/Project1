@@ -27,12 +27,20 @@ public class ItemController {
 		}
 	}
 	
+	@GetMapping(value = "/items/not-warehouse", params = "id") // localhost:8080/movies or localhost:8080/movies?title=inception or localhost:8080/movies?firstName=chris 
+	public ResponseEntity<List<ItemResponseDto>> findNotInWarehouse(@RequestParam int id){
+		List<ItemResponseDto> dtos = itemService.findNotInWarehouse(id);
+		if (dtos == null || dtos.size() == 0) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		} else {
+			return new ResponseEntity<>(dtos, HttpStatus.OK);
+		}
+	}
+	
 	@GetMapping(value = "/items", params = "id")
 	public ResponseEntity<ItemResponseDto> getReferenceById(@RequestParam int id) {
 		return new ResponseEntity<>(itemService.getReferenceById(id), HttpStatus.OK);
 	}
-
-	//edit?
 	
     // Save operation
     @PostMapping("/items")

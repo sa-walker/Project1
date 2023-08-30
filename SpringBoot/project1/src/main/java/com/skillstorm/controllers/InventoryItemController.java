@@ -30,6 +30,27 @@ public class InventoryItemController {
 		}
 	}
 	
+	@GetMapping(value = "/inventory/by-warehouse", params = "id") // localhost:8080/movies or localhost:8080/movies?title=inception or localhost:8080/movies?firstName=chris 
+	public ResponseEntity<List<InventoryItemResponseDto>> findByWarehouseId(@RequestParam int id) {
+		List<InventoryItemResponseDto> dtos = invItemService.findByWarehouseId(id);
+		if (dtos == null || dtos.size() == 0) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		} else {
+			return new ResponseEntity<>(dtos, HttpStatus.OK);
+		}
+	}
+	
+	@GetMapping(value = "/inventory/by-item", params = "id") // localhost:8080/movies or localhost:8080/movies?title=inception or localhost:8080/movies?firstName=chris 
+	public ResponseEntity<List<InventoryItemResponseDto>> findByItemId(@RequestParam int id) {
+		List<InventoryItemResponseDto> dtos = invItemService.findByItemId(id);
+		if (dtos == null || dtos.size() == 0) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		} else {
+			return new ResponseEntity<>(dtos, HttpStatus.OK);
+		}
+	}
+	
+	
 	//filter by warehouse
 	//filter by itemid
 	//filter by item name

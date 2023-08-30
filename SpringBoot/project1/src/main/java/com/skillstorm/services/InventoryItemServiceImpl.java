@@ -5,9 +5,11 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.skillstorm.dtos.InventoryItemRequestDto;
 import com.skillstorm.dtos.InventoryItemResponseDto;
+import com.skillstorm.dtos.ItemResponseDto;
 import com.skillstorm.mappers.InventoryItemMapper;
 import com.skillstorm.models.InventoryItem;
 import com.skillstorm.repositories.InventoryItemRepository;
@@ -15,7 +17,7 @@ import com.skillstorm.repositories.ItemRepository;
 import com.skillstorm.repositories.WarehouseRepository;
 
 @Service
-
+@Transactional 
 public class InventoryItemServiceImpl implements InventoryItemService {
 
 	private InventoryItemRepository repo;
@@ -39,6 +41,24 @@ public class InventoryItemServiceImpl implements InventoryItemService {
 	@Override
 	public List<InventoryItemResponseDto> findAll() {
 		return repo.findAll().stream().map(data -> mapper.convert(data)).collect(Collectors.toList());
+	}
+	
+	@Override
+	public InventoryItemResponseDto getReferenceById(Integer id) {
+		return mapper.convert(repo.getReferenceById(id));
+
+	}
+	
+	@Override
+	// get all the inventory items in a certain warehouse
+	public List<InventoryItemResponseDto> findByWarehouseId(Integer id){
+		return repo.getInventoryByWarehouse(id).stream().map(data -> mapper.convert(data)).collect(Collectors.toList());
+	}
+	
+	@Override
+	//list stock for each warehouses for a certain item
+	public List<InventoryItemResponseDto> findByItemId(Integer id){
+		return repo.getInventoryByItem(id).stream().map(data -> mapper.convert(data)).collect(Collectors.toList());
 	}
 
 	// JPA projections can do the Director -> DirectorResponseDto for us

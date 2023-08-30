@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.skillstorm.dtos.ItemRequestDto;
 import com.skillstorm.dtos.ItemResponseDto;
@@ -13,7 +14,7 @@ import com.skillstorm.models.Item;
 import com.skillstorm.repositories.ItemRepository;
 
 @Service
-
+@Transactional 
 public class ItemServiceImpl implements ItemService {
     
 	@Autowired
@@ -38,6 +39,11 @@ public class ItemServiceImpl implements ItemService {
 	public ItemResponseDto getReferenceById(Integer id) {
 		return mapper.convert(repo.getReferenceById(id));
 
+	}
+	
+	@Override
+	public List<ItemResponseDto> findNotInWarehouse(Integer id) {
+		return repo.getItemsNotInWarehouse(id).stream().map(data -> mapper.convert(data)).collect(Collectors.toList());
 	}
 
 	// JPA projections can do the Director -> DirectorResponseDto for us
