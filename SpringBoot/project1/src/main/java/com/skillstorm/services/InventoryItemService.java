@@ -26,6 +26,6 @@ public interface InventoryItemService {
 	InventoryItemResponseDto save(InventoryItemRequestDto dto);
 	
 	//delete
-	int delete(InventoryItemRequestDto dto);
+	int delete(int id);
 
 }

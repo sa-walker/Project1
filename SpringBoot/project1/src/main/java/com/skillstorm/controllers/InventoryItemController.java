@@ -11,6 +11,7 @@ import com.skillstorm.dtos.InventoryItemRequestDto;
 import com.skillstorm.dtos.InventoryItemResponseDto;
 import com.skillstorm.dtos.ItemRequestDto;
 import com.skillstorm.dtos.ItemResponseDto;
+import com.skillstorm.dtos.WarehouseResponseDto;
 import com.skillstorm.services.InventoryItemService;
 import com.skillstorm.services.ItemService;
 //import javax.validation.Valid;
@@ -62,8 +63,13 @@ public class InventoryItemController {
 		return new ResponseEntity<>(invItemService.save(dto), HttpStatus.CREATED);
 	}
 
-	@DeleteMapping("/inventory")
+	/*@DeleteMapping("/inventory")
 	public int delete(@RequestBody InventoryItemRequestDto dto) {
 		return invItemService.delete(dto);
+	}*/
+	
+	@DeleteMapping(value = "/inventory", params = "id")
+	public int delete(@RequestParam int id) {
+		return invItemService.delete(id);
 	}
 }

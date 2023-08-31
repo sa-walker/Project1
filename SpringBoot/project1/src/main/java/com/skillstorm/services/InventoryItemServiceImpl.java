@@ -1,6 +1,8 @@
 package com.skillstorm.services;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +55,9 @@ public class InventoryItemServiceImpl implements InventoryItemService {
 	// get all the inventory items in a certain warehouse
 	public List<InventoryItemResponseDto> findByWarehouseId(Integer id){
 		return repo.getInventoryByWarehouse(id).stream().map(data -> mapper.convert(data)).collect(Collectors.toList());
+		
+		//return repo.getInventoryByWarehouse(id);
+	       
 	}
 	
 	@Override
@@ -76,11 +81,9 @@ public class InventoryItemServiceImpl implements InventoryItemService {
 	}
 
 	@Override
-	public int delete(InventoryItemRequestDto dto) {
-		// dto -> inventory item
-		InventoryItem invItem = mapper.convert(dto);
+	public int delete(int id) {
 		// save to db
-		repo.delete(invItem);
+		repo.deleteById(id);
 		return 1;
 	}
 	

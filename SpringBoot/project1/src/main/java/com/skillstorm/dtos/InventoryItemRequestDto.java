@@ -10,9 +10,9 @@ public class InventoryItemRequestDto {
 
 	private int id;
 
-	private int itemId;
+	private Item item;
 	
-	private int warehouseId;
+	private Warehouse warehouse;
 	
 	private int quantity;
 
@@ -23,11 +23,11 @@ public class InventoryItemRequestDto {
 	}
 
 
-	public InventoryItemRequestDto(int id, int itemId, int warehouseId, int quantity) {
+	public InventoryItemRequestDto(int id, Item item, Warehouse warehouse, int quantity) {
 		super();
 		this.id = id;
-		this.itemId = itemId;
-		this.warehouseId = warehouseId;
+		this.item = item;
+		this.warehouse = warehouse;
 		this.quantity = quantity;
 	}
 
@@ -42,23 +42,23 @@ public class InventoryItemRequestDto {
 	}
 
 
-	public int getItemId() {
-		return itemId;
+	public Item getItem() {
+		return item;
 	}
 
 
-	public void setItemId(int itemId) {
-		this.itemId = itemId;
+	public void setItemId(Item item) {
+		this.item = item;
 	}
 
 
-	public int getWarehouseId() {
-		return warehouseId;
+	public Warehouse getWarehouse() {
+		return warehouse;
 	}
 
 
-	public void setWarehouseId(int warehouseId) {
-		this.warehouseId = warehouseId;
+	public void setWarehouseId(Warehouse warehouse) {
+		this.warehouse = warehouse;
 	}
 
 
@@ -74,14 +74,14 @@ public class InventoryItemRequestDto {
 
 	@Override
 	public String toString() {
-		return "InventoryItemRequestDto [id=" + id + ", item=" + itemId + ", warehouse=" + warehouseId + ", quantity="
+		return "InventoryItemRequestDto [id=" + id + ", item=" + item.toString() + ", warehouse=" + warehouse.toString() + ", quantity="
 				+ quantity + "]";
 	}
 
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, itemId, quantity, warehouseId);
+		return Objects.hash(id, item, quantity, warehouse);
 	}
 
 
@@ -94,8 +94,8 @@ public class InventoryItemRequestDto {
 		if (getClass() != obj.getClass())
 			return false;
 		InventoryItemRequestDto other = (InventoryItemRequestDto) obj;
-		return id == other.id && Objects.equals(itemId, other.itemId) && quantity == other.quantity
-				&& Objects.equals(warehouseId, other.warehouseId);
+		return id == other.id && Objects.equals(item, other.item) && quantity == other.quantity
+				&& Objects.equals(warehouse, other.warehouse);
 	}
 	
 	

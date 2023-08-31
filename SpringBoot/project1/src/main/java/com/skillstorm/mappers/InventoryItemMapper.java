@@ -30,8 +30,8 @@ public class InventoryItemMapper {
 
 	public InventoryItemResponseDto convert(InventoryItem inventoryItem) {
 		return new InventoryItemResponseDto(inventoryItem.getId(), 
-				inventoryItem.getItem().getId(), 
-				inventoryItem.getWarehouse().getId(),
+				inventoryItem.getItem(), 
+				inventoryItem.getWarehouse(),
 				inventoryItem.getQuantity());
 	}
 	
@@ -39,12 +39,12 @@ public class InventoryItemMapper {
 	
 	public InventoryItem convert(InventoryItemRequestDto inventoryItemDto) {
 		
-		Item item = itemFromId(inventoryItemDto.getItemId());
-		Warehouse warehouse = warehouseFromId(inventoryItemDto.getWarehouseId());
+		//Item item = itemFromId(inventoryItemDto.getItemId());
+		//Warehouse warehouse = warehouseFromId(inventoryItemDto.getWarehouseId());
 		
 		return new InventoryItem(inventoryItemDto.getId(),
-				item,
-				warehouse,
+				inventoryItemDto.getItem(),
+				inventoryItemDto.getWarehouse(),
 				inventoryItemDto.getQuantity());
 	}
 	
