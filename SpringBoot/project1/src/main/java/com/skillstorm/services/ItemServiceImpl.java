@@ -61,11 +61,8 @@ public class ItemServiceImpl implements ItemService {
 	}
 
 	@Override
-	public int delete(ItemRequestDto dto) {
-		// dto -> inventory item
-		Item item = mapper.convert(dto);
-		// save to db
-		repo.delete(item);
+	public int delete(int id) {
+		repo.deleteById(id);
 		return 1;
 	}
 }

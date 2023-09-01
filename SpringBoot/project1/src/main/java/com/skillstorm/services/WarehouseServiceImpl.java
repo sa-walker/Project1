@@ -60,11 +60,8 @@ public class WarehouseServiceImpl implements WarehouseService {
 	}
 
 	@Override
-	public int delete(WarehouseRequestDto dto) {
-		// dto -> inventory item
-		Warehouse warehouse = mapper.convert(dto);
-		// save to db
-		repo.delete(warehouse);
+	public int delete(int id) {
+		repo.deleteById(id);
 		return 1;
 	}
 }

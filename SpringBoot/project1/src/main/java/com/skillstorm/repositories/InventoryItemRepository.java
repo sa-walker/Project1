@@ -23,6 +23,7 @@ public interface InventoryItemRepository extends JpaRepository<InventoryItem, In
 	@Procedure("FIND_INVENTORY_BY_ITEM")
 	List<InventoryItem> getInventoryByItem(Integer id);
 
-	
+	@Procedure("GET_INVENTORY_LEVELS")
+	List<Object> getInventoryLevels();
 
 }

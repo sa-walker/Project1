@@ -46,6 +46,11 @@ public class InventoryItemServiceImpl implements InventoryItemService {
 	}
 	
 	@Override
+	public List<Object> getInventoryLevels() {
+		return repo.getInventoryLevels().stream().collect(Collectors.toList());
+	}
+	
+	@Override
 	public InventoryItemResponseDto getReferenceById(Integer id) {
 		return mapper.convert(repo.getReferenceById(id));
 

@@ -41,6 +41,17 @@ public class InventoryItemController {
 		}
 	}
 	
+	@GetMapping("/inventory/levels") // localhost:8080/movies or localhost:8080/movies?title=inception or localhost:8080/movies?firstName=chris 
+	public ResponseEntity<List<Object>> getInventoryLevels() {
+		List<Object> levels = invItemService.getInventoryLevels();
+		if (levels == null || levels.size() == 0) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		} else {
+			return new ResponseEntity<>(levels, HttpStatus.OK);
+		}
+	}
+	
+	
 	@GetMapping(value = "/inventory/by-item", params = "id") // localhost:8080/movies or localhost:8080/movies?title=inception or localhost:8080/movies?firstName=chris 
 	public ResponseEntity<List<InventoryItemResponseDto>> findByItemId(@RequestParam int id) {
 		List<InventoryItemResponseDto> dtos = invItemService.findByItemId(id);
@@ -60,6 +71,7 @@ public class InventoryItemController {
     // Save operation
     @PostMapping("/inventory")
 	public ResponseEntity<InventoryItemResponseDto> save(@RequestBody InventoryItemRequestDto dto) {
+    	
 		return new ResponseEntity<>(invItemService.save(dto), HttpStatus.CREATED);
 	}
 

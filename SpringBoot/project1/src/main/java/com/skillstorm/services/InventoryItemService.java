@@ -16,6 +16,8 @@ public interface InventoryItemService {
 	List<InventoryItemResponseDto> findAll();
 	InventoryItemResponseDto getReferenceById(Integer id);
 	
+	List<Object> getInventoryLevels();
+	
 	// get all the inventory items in a certain warehouse
 	List<InventoryItemResponseDto> findByWarehouseId(Integer id);
 	

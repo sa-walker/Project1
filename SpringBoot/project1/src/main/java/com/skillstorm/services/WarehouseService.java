@@ -16,5 +16,5 @@ public interface WarehouseService {
 	WarehouseResponseDto save(WarehouseRequestDto dto);
 	
 	//delete
-	int delete(WarehouseRequestDto dto);
+	int delete(int id);
 }

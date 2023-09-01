@@ -43,8 +43,8 @@ public class WarehouseController {
 	}
     
 
-	@DeleteMapping("/warehouses")
-	public int delete(@RequestBody WarehouseRequestDto dto) {
-		return warehouseService.delete(dto);
+	@DeleteMapping(value = "/warehouses", params = "id")
+	public int delete(@RequestParam int id) {
+		return warehouseService.delete(id);
 	}
 }

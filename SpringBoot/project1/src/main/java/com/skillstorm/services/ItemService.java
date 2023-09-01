@@ -17,6 +17,6 @@ public interface ItemService {
 	ItemResponseDto save(ItemRequestDto dto);
 	
 	//delete
-	int delete(ItemRequestDto dto);
+	int delete(int id);
 
 }
